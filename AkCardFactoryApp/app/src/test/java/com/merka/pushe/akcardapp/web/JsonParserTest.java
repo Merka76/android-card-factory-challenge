@@ -3,8 +3,6 @@ package com.merka.pushe.akcardapp.web;
 import org.json.JSONObject;
 import org.junit.Test;
 
-import java.util.ArrayList;
-
 import static org.junit.Assert.assertEquals;
 
 /**
@@ -15,7 +13,7 @@ import static org.junit.Assert.assertEquals;
 
 public class JsonParserTest {
     /**
-     * Tests {@link JSONParser#sendHttpRequest(String)} but needs android.jar so needs to reimplemented
+     * Tests {@link JSONParser#sendHttpRequest(String)} but needs android.jar so should be reimplemented
      * as an instrumental test.
      * @throws Exception
      */
