@@ -52,6 +52,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);//to hide the appname
+        getSupportActionBar().setElevation(4);
+        getSupportActionBar().setIcon(R.drawable.logo);
 
         initMsgTv = (TextView) findViewById(R.id.initMsgTV);
         initProgressBar = (ProgressBar) findViewById(R.id.loadingProgress);

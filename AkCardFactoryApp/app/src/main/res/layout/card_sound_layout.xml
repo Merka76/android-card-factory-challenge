@@ -11,7 +11,8 @@
     card_view:cardElevation="5dp"
     card_view:cardMaxElevation="8dp"
     card_view:cardUseCompatPadding="true"
-    card_view:cardBackgroundColor="@color/art_color">
+    card_view:cardBackgroundColor="@color/art_color"
+    >
 
     <RelativeLayout
         android:layout_width="wrap_content"

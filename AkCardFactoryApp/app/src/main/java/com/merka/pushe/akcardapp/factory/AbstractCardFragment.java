@@ -79,6 +79,7 @@ public abstract class AbstractCardFragment extends Fragment {
                 containerCardView.setBackgroundColor(getResources().getColor(R.color.fun_color));
                 break;
         }
+//        containerCardView.setcar
     }
 
     public String getTitle() {

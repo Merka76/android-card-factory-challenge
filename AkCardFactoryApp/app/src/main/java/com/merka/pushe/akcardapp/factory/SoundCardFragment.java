@@ -60,7 +60,7 @@ public class SoundCardFragment extends AbstractCardFragment {
     }
 
     /**
-     * Inherited forom AbstractCardFragment, this method binds class fields to layout
+     * Inherited from AbstractCardFragment, this method binds class fields to layout
      * file components.
      * @param view
      */
@@ -160,6 +160,7 @@ public class SoundCardFragment extends AbstractCardFragment {
     @Override
     public void onDestroy() {
         super.onDestroy();
+        mHandler.removeCallbacks(mUpdateTimeTask);
         killMediaPlayer();
     }
 }
