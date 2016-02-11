@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="sport_color">#7722aadd</color>
+    <color name="fun_color">#77ff5600</color>
+    <color name="art_color">#775cd411</color>
+
+</resources>

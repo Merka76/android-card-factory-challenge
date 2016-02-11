@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/vibratorCardview"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:clickable="true"
+    android:foreground="?attr/selectableItemBackground"
+    card_view:cardCornerRadius="5dp"
+    card_view:cardElevation="5dp"
+    card_view:cardMaxElevation="8dp"
+    card_view:cardUseCompatPadding="true"
+    card_view:cardBackgroundColor="@color/fun_color">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/themeIconIV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/artist"
+            android:layout_toRightOf="@+id/titleTV"
+            android:layout_alignBottom="@+id/descTV"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"/>
+
+        <TextView
+            android:id="@+id/titleTV"
+            android:layout_width="230dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_margin="@dimen/text_view_margin"
+
+            android:text="Title"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <RelativeLayout
+            android:id="@+id/emptyLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/titleTV"
+            android:layout_centerInParent="true"
+            android:layout_marginRight="@dimen/def_margin"
+            android:layout_marginLeft="@dimen/def_margin"
+            android:paddingTop="8dp">
+
+        </RelativeLayout>
+        <TextView
+            android:id="@+id/tagTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/emptyLayout"
+            android:layout_marginLeft="@dimen/def_margin"
+            android:padding="4dp"
+            android:text="Tag"
+            android:background="#FFddcc"
+            android:layout_gravity="bottom"
+            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+        <TextView
+            android:id="@+id/descTV"
+            android:layout_width="230dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tagTV"
+            android:layout_margin="@dimen/text_view_margin"
+            android:text="Description"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    </RelativeLayout>
+
+
+</android.support.v7.widget.CardView>
