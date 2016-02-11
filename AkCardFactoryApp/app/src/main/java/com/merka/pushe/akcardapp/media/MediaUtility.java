@@ -1,12 +1,15 @@
 package com.merka.pushe.akcardapp.media;
 
 /**
- * Created by Akram Shokri on 16/01/12, 10:06 PM.
+ * Created on 16/01/12, 10:06 PM.
+ * @author Akram Shokri
+ *
+ * This is a utility class which its methods are used when an audio is playing.
  */
+
 public class MediaUtility {
     /**
-     * Function to convert milliseconds time to
-     * Timer Format
+     * converts milliseconds time to timer format
      * Hours:Minutes:Seconds
      * */
     public static String milliSecondsToTimer(long milliseconds){
@@ -35,7 +38,7 @@ public class MediaUtility {
     }
 
     /**
-     * Function to get Progress percentage
+     * computes progress percentage
      * @param currentDuration
      * @param totalDuration
      * */
@@ -53,8 +56,8 @@ public class MediaUtility {
     }
 
     /**
-     * Function to change progress to timer
-     * @param progress -
+     * changes progress value to timer
+     * @param progress
      * @param totalDuration
      * returns current duration in milliseconds
      * */

@@ -1,6 +1,5 @@
 package com.merka.pushe.akcardapp.factory;
 
-import android.graphics.Color;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.CardView;
 import android.view.View;
@@ -10,7 +9,20 @@ import android.widget.TextView;
 import com.merka.pushe.akcardapp.R;
 
 /**
- * Created by Akram Shokri on 16-02-09, 12:31 PM.
+ * Created on 16-02-09, 12:31 PM.
+ * @author Akram Shokri
+ *
+ * This is the base class for different <b>Cards</b> containing common properties and behaviours of
+ * all cards. Inheritance is used here for two reasons:<br> 1- code simplicity and avoiding code replication
+ * <br>2-to implement <b>Factory Pattern</b> when generating a fragment for a random card.
+ * <p>Picture Card, Sound Card and Vibrator Card are implemented as subclass of AbstractCardFragment and
+ * different themes are given to them usig #cardTheme field.</p>
+ * @see CardFactory
+ * @see PictureCardFragment
+ * @see SoundCardFragment
+ * @see ViberatorCardFragment
+ * @see CardTheme
+ * @see Fragment
  */
 
 public abstract class AbstractCardFragment extends Fragment {
@@ -30,6 +42,11 @@ public abstract class AbstractCardFragment extends Fragment {
     public AbstractCardFragment() {
     }
 
+    /**
+     * Finds component in the given view. These components are common components which all
+     * subclasses of AbstractCardFragment share.
+     * @param view
+     */
     protected void cardFindViewById(View view){
         tagTV = (TextView) view.findViewById(R.id.tagTV);
         titleTV = (TextView) view.findViewById(R.id.titleTV);
@@ -37,6 +54,11 @@ public abstract class AbstractCardFragment extends Fragment {
         themeIconIV = (ImageView) view.findViewById(R.id.themeIconIV);
     }
 
+    /**
+     * Set values of view components.
+     * This method also applies theme color and icons to underlying view. The underlying view
+     * is determined according to the subclass object which call it.
+     */
     protected void fillViewComponents(){
         tagTV.setText("#"+cardTag);
         titleTV.setText(title);

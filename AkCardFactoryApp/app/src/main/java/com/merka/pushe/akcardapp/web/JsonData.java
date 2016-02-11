@@ -1,7 +1,10 @@
 package com.merka.pushe.akcardapp.web;
 
 /**
- * Created by Akram Shokri on 16-02-09, 1:58 PM.
+ * Created on 16-02-09, 1:58 PM.
+ * @author  Akram Shokri
+ *
+ * A simple bean, for storing fields of a json object representing a card.
  */
 public class JsonData {
     private String title;

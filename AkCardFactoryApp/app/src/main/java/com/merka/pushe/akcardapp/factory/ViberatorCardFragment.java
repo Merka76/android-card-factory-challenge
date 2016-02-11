@@ -7,12 +7,17 @@ import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 
 import com.merka.pushe.akcardapp.R;
 
 /**
- * Created by Akram Shokri on 16-02-09, 12:52 PM.
+ * Created on 16-02-09, 12:52 PM.
+ * @author Akram Shokri
+ * This class vibrates when it shows a card.
+ * <br>This class is a subclass of {@link AbstractCardFragment} and inherits main features of a
+ * 'Card Fragment' from it.
+ *
+ * <p> @see AbstractCardFragment</p>
  */
 
 public class ViberatorCardFragment extends AbstractCardFragment {

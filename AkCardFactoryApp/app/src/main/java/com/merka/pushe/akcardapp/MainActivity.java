@@ -30,7 +30,13 @@ import java.util.ArrayList;
 import java.util.Random;
 
 /**
- *  Created by Akram Shokri on 16-02-09, 12:25 PM.
+ *  Created on 16-02-09, 12:25 PM.
+ *  @author Akram Shokri
+ *
+ *  This calss is the main and only activity of the app. It starts the app, send a get request
+ *  to a web address to retrieve the list of cards in json format. An {@link AsyncTask} is used for
+ *  retrieving the initialization list.
+ *  Then it shows a random card and repeat this when user hits the <u>try</u> button.
  */
 public class MainActivity extends AppCompatActivity {
     private ArrayList<JsonData> initList;
@@ -50,30 +56,29 @@ public class MainActivity extends AppCompatActivity {
         initMsgTv = (TextView) findViewById(R.id.initMsgTV);
         initProgressBar = (ProgressBar) findViewById(R.id.loadingProgress);
         tryButton = (Button) findViewById(R.id.tryBtn);
+
+        //if app is just started, retrieve the card list from the web inside an {@link AsyncTask}
         if(initList == null || (initList != null && initList.size() == 0)) {
             PollTask backgroundTask = new PollTask();
             backgroundTask.execute();
         }
 
+        //when try button is clicked, show a random card which is not shown before.
         tryButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showACard();
+                showARandomCard();
             }
         });
 
-       /*FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });*/
-
     }
 
-    private void showACard(){
+    /**
+     * Picks a card from the card list randomly and constructs fragment to show this card using
+     * {@link CardFactory#getCard(String, String, String, String, int, String)}. It replaces current
+     * fragment with this constructed fragment and finishes its work.
+     */
+    private void showARandomCard(){
         int index = getNextUnseenRandom();
         JsonData data = initList.get(index);
         AbstractCardFragment aCardFragmnet = CardFactory.getCard(data.getTitle(), data.getDescription(),
@@ -87,6 +92,11 @@ public class MainActivity extends AppCompatActivity {
         // Commit the transaction
         transaction.commit();
     }
+
+    /**
+     * Finds an index which is not used till now. This index is used to get an unseen item from card list.
+     * @return an int which is the index of an unseen card in card list.
+     */
 
     private int getNextUnseenRandom(){
         int r = random.nextInt(initList.size());
@@ -127,9 +137,16 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    /**
+     * This class is an {@link AsyncTask} class which runs in background. It sends a http request
+     * to <code>JSON_URL</code> and gets card initializations data a a json object.
+     */
     class PollTask extends AsyncTask<Void, Void, ArrayList<JsonData>> {
         public static final String JSON_URL = "http://static.pushe.co/challenge/json";
 
+        /**
+         * shows a loading spinner before starting background task and hides <code>tryButton</code>
+         */
         @Override
         protected void onPreExecute() {
             try {
@@ -143,6 +160,12 @@ public class MainActivity extends AppCompatActivity {
 
         }
 
+        /**
+         * sends http request to <code>JSON_URL</code> and receives card list as an {@link ArrayList}
+         * of {@link JsonData} objects.
+         * @param params
+         * @return list of the initialization cards
+         */
 
         @Override
         protected ArrayList<JsonData> doInBackground(Void... params) {
@@ -170,6 +193,13 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
+        /**
+         * Runs when background task is finished. It sets the valus if <code>initList</code> with
+         * the return value of <code>doInBackground</code> and then initialize <code>blackList</code>.
+         * Finally, it makes <code>tryButton</code> disable and hides the loading spinner. Then calls
+         * <code>showARandomCard</code> to start the app.
+         * @param result
+         */
 
         @Override
         protected void onPostExecute(ArrayList<JsonData> result) {
@@ -182,7 +212,7 @@ public class MainActivity extends AppCompatActivity {
             initProgressBar.setVisibility(View.GONE);
             tryButton.setVisibility(View.VISIBLE);
             initMsgTv.setVisibility(View.GONE);
-            showACard();
+            showARandomCard(); //when retrieving card list from web is done, show a random card
 
         }
 

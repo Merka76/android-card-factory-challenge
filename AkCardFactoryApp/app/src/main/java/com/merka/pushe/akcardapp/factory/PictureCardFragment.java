@@ -17,7 +17,7 @@ import com.squareup.picasso.Picasso;
  *
  * This class shows a card which contains a picture. The picture is loaded from a url with the help
  * of picasso library.
- * <br>This class is a subclass of AbstractCardFragment and inherits main features of a
+ * <br>This class is a subclass of {@link AbstractCardFragment} and inherits main features of a
  * 'Card Fragment' from it.
  *
  * <p> @see AbstractCardFragment</p>
@@ -29,7 +29,6 @@ public class PictureCardFragment extends AbstractCardFragment {
 
     public PictureCardFragment() {
     }
-
 
 
     public String getImgPath() {
@@ -49,6 +48,11 @@ public class PictureCardFragment extends AbstractCardFragment {
         return v;
     }
 
+    /**
+     * Inherited form AbstractCardFragment,this method binds class fields with
+     * layout file components
+     * @param view
+     */
     @Override
     public void cardFindViewById(View view) {
         super.cardFindViewById(view);
@@ -57,6 +61,10 @@ public class PictureCardFragment extends AbstractCardFragment {
         fillViewComponents();
     }
 
+    /**
+     * Inherited from AbstractCardFragment. This method loads a picture from <code>imgPath</code>
+     * using Picasso library.
+     */
     @Override
     protected void fillViewComponents() {
         super.fillViewComponents();

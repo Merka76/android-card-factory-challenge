@@ -16,6 +16,10 @@ import java.nio.ByteBuffer;
 
 import android.content.Context;
 
+/**
+ * This class contains simple file operation methods.
+ * I borrowed it from somewhere that I don't recall now.
+ */
 public class FileUtils {
 
 	public static void close(Reader reader) {

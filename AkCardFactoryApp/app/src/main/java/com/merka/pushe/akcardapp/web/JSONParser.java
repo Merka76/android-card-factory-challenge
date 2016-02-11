@@ -24,18 +24,26 @@ import org.json.JSONObject;
 
 import android.content.Context;
 
-
+/**
+ * This class sends an http get request to a given url and returns the response as a json object.
+ */
 public class JSONParser {
 
 	public static final int CONN_TIME_OUT = 10000/*3000*/; //in milli seconds
     public static final int SOCKET_TIME_OUT = 20000/*5000*/;
 	static String json = "";
 
-	private HttpURLConnection httpConnection;
 
 	InputStream inputStream = null;
 	BufferedReader reader = null;
 
+	/**
+	 *
+	 * @param urlString
+	 * @return a json object containing the response of the http request, or an exception
+	 * @throws IOException
+	 * @throws JSONException
+	 */
 
 	public JSONObject sendHttpRequest(String urlString)
 			throws IOException, JSONException {
@@ -67,7 +75,7 @@ public class JSONParser {
 				while ((line = reader.readLine()) != null)
 					output.append(line + "\n");
 				json = output.toString();
-				if(!json.trim().startsWith("<!DOCTYPE"))
+				if(!json.trim().startsWith("<!DOCTYPE"))//checking for error msg thrwon by .net servers
 					jsonObject = new JSONObject(json);
 
 		}catch(Exception e){

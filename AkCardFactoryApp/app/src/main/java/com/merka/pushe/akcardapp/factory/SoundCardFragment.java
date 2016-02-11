@@ -20,10 +20,10 @@ import java.io.IOException;
  * Created on 16-02-09, 12:51 PM.
  * @author Akram Shokri
  *
- * This class shows a card which contains an audio resource. <br> The audio resource is
- * in fact a url. This class shows a simple UI to play/pause the audio, showing its duration
+ * This class shows a card which contains an audio resource. The audio resource is
+ * in fact a web url contained in <code>soundPath</code>. This class shows a simple UI to play/pause the audio, showing its duration
  * and progress of playing.
- * <br>This class is a subclass of AbstractCardFragment and inherits main features of a
+ * <br>This class is a subclass of {@link AbstractCardFragment} and inherits main features of a
  * 'Card Fragment' from it.
  *
  * <p> @see AbstractCardFragment</p>

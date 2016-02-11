@@ -7,7 +7,9 @@ import android.view.View;
 import android.view.ViewGroup;
 
 /**
+ * @author Akram Shokri
  * A placeholder fragment containing a simple view.
+ * This class shows a view at the start of the applicatin, indicating that the app is initializing.
  */
 public class InitialActivityFragment extends Fragment {
 
