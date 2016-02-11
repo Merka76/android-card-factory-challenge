@@ -101,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
     private int getNextUnseenRandom(){
         int r = random.nextInt(initList.size());
         if(blackList.size() == initList.size()) {
-            Snackbar.make(initMsgTv.getRootView(), "You have tried all items. Now another round of try starts.", Snackbar.LENGTH_LONG)
+            Snackbar.make(initMsgTv.getRootView(), "You have tried all items already. This is another round of try.", Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show();
             blackList.clear();
         }
@@ -213,7 +213,6 @@ public class MainActivity extends AppCompatActivity {
             tryButton.setVisibility(View.VISIBLE);
             initMsgTv.setVisibility(View.GONE);
             showARandomCard(); //when retrieving card list from web is done, show a random card
-
         }
 
 
