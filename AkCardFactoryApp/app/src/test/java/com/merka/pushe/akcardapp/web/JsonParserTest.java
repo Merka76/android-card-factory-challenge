@@ -14,7 +14,11 @@ import static org.junit.Assert.assertEquals;
  */
 
 public class JsonParserTest {
-
+    /**
+     * Tests {@link JSONParser#sendHttpRequest(String)} but needs android.jar so needs to reimplemented
+     * as an instrumental test.
+     * @throws Exception
+     */
     @Test
     public void testSendHttpRequest() throws Exception{
         String jsonUrl = "http://static.pushe.co/challenge/json";
