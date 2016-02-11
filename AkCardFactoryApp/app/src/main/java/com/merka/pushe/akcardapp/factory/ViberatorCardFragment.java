@@ -1,6 +1,8 @@
 package com.merka.pushe.akcardapp.factory;
 
+import android.content.Context;
 import android.os.Bundle;
+import android.os.Vibrator;
 import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,6 +25,10 @@ public class ViberatorCardFragment extends AbstractCardFragment {
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.card_vibrator_layout, container, false);
         cardFindViewById(v);
+
+        Vibrator vibe = (Vibrator) getActivity().getSystemService(Context.VIBRATOR_SERVICE);
+        vibe.vibrate(500);
+
         return v;
     }
 

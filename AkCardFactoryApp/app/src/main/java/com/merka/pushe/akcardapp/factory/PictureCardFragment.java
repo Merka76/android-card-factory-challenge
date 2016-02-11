@@ -12,7 +12,15 @@ import com.merka.pushe.akcardapp.R;
 import com.squareup.picasso.Picasso;
 
 /**
- * Created by Akram Shokri on 16-02-09, 12:51 PM.
+ * Created on 16-02-09, 12:51 PM.
+ * @author Akram Shokri
+ *
+ * This class shows a card which contains a picture. The picture is loaded from a url with the help
+ * of picasso library.
+ * <br>This class is a subclass of AbstractCardFragment and inherits main features of a
+ * 'Card Fragment' from it.
+ *
+ * <p> @see AbstractCardFragment</p>
  */
 public class PictureCardFragment extends AbstractCardFragment {
     private String imgPath;

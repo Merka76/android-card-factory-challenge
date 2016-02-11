@@ -17,7 +17,16 @@ import com.merka.pushe.akcardapp.media.MediaUtility;
 import java.io.IOException;
 
 /**
- * Created by Akram Shokri on 16-02-09, 12:51 PM.
+ * Created on 16-02-09, 12:51 PM.
+ * @author Akram Shokri
+ *
+ * This class shows a card which contains an audio resource. <br> The audio resource is
+ * in fact a url. This class shows a simple UI to play/pause the audio, showing its duration
+ * and progress of playing.
+ * <br>This class is a subclass of AbstractCardFragment and inherits main features of a
+ * 'Card Fragment' from it.
+ *
+ * <p> @see AbstractCardFragment</p>
  */
 
 public class SoundCardFragment extends AbstractCardFragment {
@@ -50,6 +59,11 @@ public class SoundCardFragment extends AbstractCardFragment {
         return v;
     }
 
+    /**
+     * Inherited forom AbstractCardFragment, this method binds class fields to layout
+     * file components.
+     * @param view
+     */
     @Override
     public void cardFindViewById(View view) {
         super.cardFindViewById(view);
@@ -59,7 +73,7 @@ public class SoundCardFragment extends AbstractCardFragment {
         currentTimeTV = (TextView) view.findViewById(R.id.currentTimeTV);
         totalTimeTV = (TextView) view.findViewById(R.id.totalTimeTV);
 
-
+        //listener for play button
         audioPlayIV.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -81,9 +95,13 @@ public class SoundCardFragment extends AbstractCardFragment {
                 }
             }
         });
+        //super class method, set values for different components of the current layout
         fillViewComponents();
     }
 
+    /**
+     * This handler is for running seekBar updater
+     */
     private Handler mHandler = new Handler();
 
     /**
@@ -99,14 +117,17 @@ public class SoundCardFragment extends AbstractCardFragment {
 
             // Updating progress bar
             seekProgress = (int)(MediaUtility.getProgressPercentage( mediaPlayer.getCurrentPosition(), mediaPlayer.getDuration()));
-            //Log.d("Progress", ""+progress);
+
             audioSeekBar.setProgress(seekProgress);
-            //System.out.println("progress:"+progress);
+
             // Running this thread after 100 milliseconds
             mHandler.postDelayed(this, 100);
         }
     };
 
+    /**
+     * Preparing audio file so it plays instantly when user hit the play button
+     */
     private void prepareAudio()
     {
         killMediaPlayer();
@@ -121,6 +142,10 @@ public class SoundCardFragment extends AbstractCardFragment {
         }
     }
 
+    /**
+     * Releasing the resources associated with mediaPlayer object to preserve battery
+     *  and memory and also avoiding playback errors
+     */
     private void killMediaPlayer() {
         if(mediaPlayer!=null) {
             try {
@@ -132,4 +157,9 @@ public class SoundCardFragment extends AbstractCardFragment {
         }
     }
 
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        killMediaPlayer();
+    }
 }
