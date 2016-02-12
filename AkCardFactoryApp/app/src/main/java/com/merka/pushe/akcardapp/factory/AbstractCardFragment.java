@@ -66,17 +66,18 @@ public abstract class AbstractCardFragment extends Fragment {
         switch (cardTheme){
             case ART:
                 themeIconIV.setImageResource(R.drawable.artist);
-                containerCardView.setBackgroundColor(getResources().getColor(R.color.art_color));
+                containerCardView.setCardBackgroundColor(getResources().getColor(R.color.art_color));
+                /* caution: using 'setBackgroundColor() instead of 'setCardBackgroundColor' will crush app on some devices*/
                 break;
 
             case SPORT:
                 themeIconIV.setImageResource(R.drawable.football);
-                containerCardView.setBackgroundColor(getResources().getColor(R.color.sport_color));
+                containerCardView.setCardBackgroundColor(getResources().getColor(R.color.sport_color));
                 break;
 
             case FUN:
                 themeIconIV.setImageResource(R.drawable.clown);
-                containerCardView.setBackgroundColor(getResources().getColor(R.color.fun_color));
+                containerCardView.setCardBackgroundColor(getResources().getColor(R.color.fun_color));
                 break;
         }
 //        containerCardView.setcar

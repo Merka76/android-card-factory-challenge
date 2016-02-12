@@ -2,4 +2,6 @@
     <string name="app_name">Pushe Card Factory</string>
     <string name="action_exit">Exit</string>
     <string name="loading_wait">Initializing app. Please wait...</string>
+    <string name="media_not_ready">Buffering media file to play, please wait ...</string>
+    <string name="unknown_time">\?.??</string>
 </resources>

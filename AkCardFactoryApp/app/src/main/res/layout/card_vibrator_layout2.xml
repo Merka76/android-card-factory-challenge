@@ -4,7 +4,7 @@
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:id="@+id/vibratorCardview"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:clickable="true"
     android:foreground="?attr/selectableItemBackground"
     card_view:cardCornerRadius="5dp"
@@ -15,57 +15,50 @@
 
     <RelativeLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
 
         <ImageView
             android:id="@+id/themeIconIV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/artist"
-            android:layout_toRightOf="@+id/titleTV"
-            android:layout_alignBottom="@+id/descTV"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"/>
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"/>
 
         <TextView
             android:id="@+id/titleTV"
-            android:layout_width="230dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_margin="@dimen/text_view_margin"
-
+            android:layout_below="@id/themeIconIV"
+            android:gravity="center"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="10dp"
+            android:textStyle="bold"
             android:text="Title"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
-        <RelativeLayout
-            android:id="@+id/emptyLayout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/titleTV"
-            android:layout_centerInParent="true"
-            android:layout_marginRight="@dimen/def_margin"
-            android:layout_marginLeft="@dimen/def_margin"
-            android:paddingTop="8dp">
 
-        </RelativeLayout>
         <TextView
             android:id="@+id/tagTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/emptyLayout"
-            android:layout_marginLeft="@dimen/def_margin"
-            android:padding="4dp"
+            android:padding="2dp"
             android:text="Tag"
             android:background="#FFddcc"
-            android:layout_gravity="bottom"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="10dp"
+            android:textStyle="italic"
             android:textAppearance="?android:attr/textAppearanceSmall" />
 
         <TextView
             android:id="@+id/descTV"
-            android:layout_width="230dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/tagTV"
+            android:layout_below="@+id/titleTV"
             android:layout_margin="@dimen/text_view_margin"
+            android:textStyle="bold"
             android:text="Description"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 

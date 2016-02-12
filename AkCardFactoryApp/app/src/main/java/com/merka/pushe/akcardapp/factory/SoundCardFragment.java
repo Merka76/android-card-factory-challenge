@@ -1,8 +1,10 @@
 package com.merka.pushe.akcardapp.factory;
 
+import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.design.widget.Snackbar;
 import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -39,6 +41,8 @@ public class SoundCardFragment extends AbstractCardFragment {
     private TextView currentTimeTV;
     private ImageView audioPlayIV;
 
+    private boolean mediaIsReady = false; //This field is use to check if media is buffered to start playing or not
+
     public SoundCardFragment() {
     }
 
@@ -55,7 +59,7 @@ public class SoundCardFragment extends AbstractCardFragment {
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.card_sound_layout, container, false);
         cardFindViewById(v);
-        prepareAudio(); //todo: put this in a thread
+        prepareAudio();
         return v;
     }
 
@@ -78,6 +82,11 @@ public class SoundCardFragment extends AbstractCardFragment {
             @Override
             public void onClick(View view) {
 
+                if(!mediaIsReady){
+                    Snackbar.make(view, R.string.media_not_ready, Snackbar.LENGTH_LONG)
+                            .setAction("Action", null).show();
+                    return;
+                }
                 if (mediaPlayer!=null && mediaPlayer.isPlaying()) {
                     mediaPlayer.pause();
                     // Changing button image to play button
@@ -92,10 +101,11 @@ public class SoundCardFragment extends AbstractCardFragment {
                         audioPlayIV.setImageResource(R.drawable.btn_pause);
                         mHandler.postDelayed(mUpdateTimeTask, 100);
                     }
+
                 }
             }
         });
-        //super class method, set values for different components of the current layout
+        //parent class's method, set values for different components of the current layout
         fillViewComponents();
     }
 
@@ -126,17 +136,25 @@ public class SoundCardFragment extends AbstractCardFragment {
     };
 
     /**
-     * Preparing audio file so it plays instantly when user hit the play button
+     * Preparing audio file so it plays instantly when user hits the play button
      */
     private void prepareAudio()
     {
         killMediaPlayer();
-
+        mediaIsReady = false;
         mediaPlayer = new MediaPlayer();
         try {
+            mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
             mediaPlayer.setDataSource(soundPath);
-            mediaPlayer.prepare();
-            //mediaPlayer.start();
+            mediaPlayer.prepareAsync();
+            mediaPlayer.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+                @Override
+                public void onPrepared(MediaPlayer player) {
+                    mediaIsReady = true;
+                    totalTimeTV.setText(""+ MediaUtility.milliSecondsToTimer(mediaPlayer.getDuration()));
+                }
+            });
+
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -150,8 +168,8 @@ public class SoundCardFragment extends AbstractCardFragment {
         if(mediaPlayer!=null) {
             try {
                 mediaPlayer.release();
-            }
-            catch(Exception e) {
+                mediaIsReady = false;
+            } catch(Exception e) {
                 e.printStackTrace();
             }
         }
