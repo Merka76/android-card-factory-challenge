@@ -71,6 +71,7 @@ public class PictureCardFragment extends AbstractCardFragment {
         Picasso.with(getContext())
                 .load(imgPath)
                 .config(Bitmap.Config.RGB_565)
+                .placeholder(R.drawable.preview)
                 .error(R.drawable.p2)
                 .fit()
                 .centerInside()
