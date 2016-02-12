@@ -4,5 +4,6 @@
     <string name="loading_wait">Initializing app. Please wait...</string>
     <string name="media_not_ready">Buffering media file to play, please wait ...</string>
     <string name="unknown_time">\?.??</string>
-    <string name="initialization_failed">Initilization faield due to network connection problem. Please check your internet connection and run application again.</string>
+    <string name="initialization_failed">Initilization faield due to network connection problem. \nPlease check your internet connection and run application again.</string>
+    <string name="try_round_restarted">You have tried all items already. This is another round of try.</string>
 </resources>

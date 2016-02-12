@@ -104,7 +104,7 @@ public class MainActivity extends AppCompatActivity {
     private int getNextUnseenRandom(){
         int r = random.nextInt(initList.size());
         if(blackList.size() == initList.size()) {
-            Snackbar.make(initMsgTv.getRootView(), "You have tried all items already. This is another round of try.", Snackbar.LENGTH_LONG)
+            Snackbar.make(initMsgTv.getRootView(), R.string.try_round_restarted, Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show();
             blackList.clear();
         }

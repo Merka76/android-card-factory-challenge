@@ -21,12 +21,14 @@
 
     <Button
         android:id="@+id/tryBtn"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="5dp"
+        android:layout_marginLeft="26dp"
+        android:layout_marginRight="26dp"
         android:background="@drawable/btn_bg"
         android:textColor="@android:color/white"
         android:text=" Try "
