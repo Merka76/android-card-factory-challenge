@@ -28,7 +28,7 @@ public class ViberatorCardFragment extends AbstractCardFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.card_vibrator_layout2, container, false);
+        View v = inflater.inflate(R.layout.card_vibrator_layout, container, false);
         cardFindViewById(v);
 
         Vibrator vibe = (Vibrator) getActivity().getSystemService(Context.VIBRATOR_SERVICE);
