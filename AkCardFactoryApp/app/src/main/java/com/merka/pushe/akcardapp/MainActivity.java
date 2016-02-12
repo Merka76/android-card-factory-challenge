@@ -174,8 +174,9 @@ public class MainActivity extends AppCompatActivity {
         protected ArrayList<JsonData> doInBackground(Void... params) {
             try {
                 JSONParser jsonParser = new JSONParser();
-
                 JSONObject jsonObject = jsonParser.sendHttpRequest(JSON_URL);
+                //todo: check for timeout and any othe failure in retrieving jsonObject from url
+
                 if (jsonObject != null) {
                     ArrayList<JsonData> initList = JsonReader.extractJsonData(jsonObject);
                     return initList;
