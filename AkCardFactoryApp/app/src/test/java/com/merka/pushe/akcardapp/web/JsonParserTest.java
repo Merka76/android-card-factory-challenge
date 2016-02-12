@@ -1,9 +1,14 @@
 package com.merka.pushe.akcardapp.web;
 
+import com.merka.pushe.akcardapp.factory.AbstractCardFragment;
+import com.merka.pushe.akcardapp.factory.CardFactory;
+import com.merka.pushe.akcardapp.factory.PictureCardFragment;
+
 import org.json.JSONObject;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 /**
  * Created on 16-02-11, 7:00 PM.
@@ -17,6 +22,8 @@ public class JsonParserTest {
      * as an instrumental test.
      * @throws Exception
      */
+
+   /*
     @Test
     public void testSendHttpRequest() throws Exception{
         String jsonUrl = "http://static.pushe.co/challenge/json";
@@ -27,5 +34,6 @@ public class JsonParserTest {
         String actualResult = jsonObject.toString();
 
         assertEquals(expectedResult, actualResult);
-    }
+    }*/ //todo: reimplement this test as an instrument test
+
 }
