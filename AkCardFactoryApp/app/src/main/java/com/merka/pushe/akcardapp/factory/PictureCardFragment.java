@@ -72,7 +72,7 @@ public class PictureCardFragment extends AbstractCardFragment {
                 .load(imgPath)
                 .config(Bitmap.Config.RGB_565)
                 .placeholder(R.drawable.preview)
-                .error(R.drawable.p2)
+                .error(R.drawable.load_failed)
                 .fit()
                 .centerInside()
                 .into(cardIV);

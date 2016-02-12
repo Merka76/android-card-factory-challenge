@@ -208,12 +208,21 @@ public class MainActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(ArrayList<JsonData> result) {
             super.onPostExecute(result);
+            initProgressBar.setVisibility(View.GONE);
+
+            if(result == null){ // failure in retrieving initial list
+                Snackbar.make(initMsgTv.getRootView(), R.string.initialization_failed, Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+                initMsgTv.setText(R.string.initialization_failed);
+
+                return;
+            }
 
             initList = result;
             if(blackList == null){
                 blackList = new ArrayList<Integer>();
             }
-            initProgressBar.setVisibility(View.GONE);
+
             tryButton.setVisibility(View.VISIBLE);
             initMsgTv.setVisibility(View.GONE);
             showARandomCard(); //when retrieving card list from web is done, show a random card

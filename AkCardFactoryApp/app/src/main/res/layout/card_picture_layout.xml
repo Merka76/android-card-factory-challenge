@@ -57,7 +57,10 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/titleTV"
             android:textStyle="bold"
-            android:layout_margin="@dimen/text_view_margin"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
             android:text="Description"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
@@ -68,7 +71,7 @@
             android:layout_below="@+id/descTV"
             android:layout_above="@+id/tagTV"
             android:padding="@dimen/img_view_margin"
-            android:src="@drawable/p2" />
+            android:src="@drawable/logo" />
     </RelativeLayout>
 
 
