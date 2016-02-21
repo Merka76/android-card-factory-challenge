@@ -6,10 +6,6 @@ machine:
   environment:
     ANDROID_HOME: /usr/local/android-sdk-linux
 
-dependencies:
-  override:
-    - source scripts/environmentSetup.sh && getAndroidSDK
-
 test:
   pre:
     - emulator -avd circleci-android22 -no-audio -no-window:
